@@ -1,14 +1,18 @@
+<script>
+// useHead({
+//   // title:"My movie site",
+//   titleTemplate: (titleChunk)=>{
+//     return titleChunk ? `${titleChunk} - My movie site` : 'My movie site'
+//   }
+//   //ถ้า titleChunk = exist ให้ title chunk ด้วย
+//   // titleChunk คือ title ที่กำหนดไว้ใน page ย่อย
+// })
+
+</script>
 <template>
   <div>
-    <!-- <NuxtWelcome /> -->
-    <nav style="display: flex; gap:10px;">
-      <!-- 1. Internal links -->
-      <NuxtLink to="/">Home</NuxtLink>
-      <NuxtLink to="/movies">Movies</NuxtLink>
-      <!-- 2. External links -->
-      <NuxtLink to="https://vueschool.io">Vue School</NuxtLink>
-    </nav>
-    
-    <NuxtPage/>
+    <NuxtLayout>
+      <NuxtPage/>
+    </NuxtLayout>
   </div>
 </template>

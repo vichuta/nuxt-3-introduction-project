@@ -23,10 +23,10 @@ const route = useRoute()
 // -- การใช้ useFetch() --
 // การใช้ useFetch() เป็นการยุบคำสั่ง useAsyncData() + $fetch() 
 // ข้อดี คือ เขียนสั้นลง + ดูข้อมูลเดิมเร็วขึ้น เพราะดึงมาจาก cache
-const { data } = useFetch(
+const { data } = await useFetch(
   `http://www.omdbapi.com/?apikey=8e3f600b&i=${route.params.id}`,
   {
-    pick:['Title','imdbRating','Error'],
+    pick:['Title','Plot','Poster','Error'],
     key: `/movies/${route.params.id}`,
     // -- เหมือนจะใช้ได้แค่บาง version --
     onResponse({request,response}){
@@ -36,6 +36,18 @@ const { data } = useFetch(
     }
   }
 );
+
+//การกำหนด title page ให้เปลี่ยนตามการคลิกของเรา
+// useHead({
+//   title: data.value.Title,
+//   // meta: [
+//   //   {name: "description", content: data.value.Plot},
+//   //   {property: "og:description", content: data.value.Plot},
+//   //   {property: "og.image", content: data.value.Poster},
+//   //   {name:"twitter:card", content: `summary_lage_image`}
+//   // ]
+// })
+
 </script>
 
 <template>
